@@ -26,12 +26,16 @@ let courses = [
   }, 
 ];	
 // Yêu cầu 1
-let result = courses.filter(courses => courses.rating >=4)
-console.log(result);
+let hight = courses.filter(courses => courses.rating >=4)
+console.log(hight);
 // Yêu cầu 2
- let formatResult = result.map((element) => element.id +"-"+ element.title +"-"+ element.rating);
- console.log(formatResult);
-//  Yêu cầu 3
+
+let lowRating = courses.filter(courses => courses.rating < 4)
+
+ let arr = lowRating.map(element => element.id +"-"+ element.title +"-"+ element.rating);
+
+
+ //  Yêu cầu 3
 let addedCourses = [ 
     { 
       id: 6, 
@@ -49,6 +53,12 @@ let addedCourses = [
       rating: 3.8, 
     } 
   ]; 
-  let mergeArr = [...courses,...addedCourses];
-  console.log(mergeArr);
+ 
+  function concatArray(courses,addedCourses) {
+  let combineArray = [...courses,...addedCourses];
+  return combineArray;
+}
+let combineArray = concatArray(courses,addedCourses)
+console.log(combineArray);
+
   
