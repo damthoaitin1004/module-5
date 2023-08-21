@@ -4,34 +4,40 @@ import './App.css';
 function App() {
   const students = [
     {
-      company: 'Alfreds Futterkiste',
-      contact: 'Maria Anders',
-      country: 'Germany'
+      id: 1,
+      name: 'Ha Van Nam',
+      age: 30,
+      address: 'Ha Noi'
     },
     {
-      company: 'Centro comercial Moctezuma',
-      contact: 'Francisco Chang',
-      country: 'Mexico'
+      id: 2,
+      name: 'Chuong van Dinh',
+      age: 23,
+      address: 'Kien Giang'
     },
     {
-      company: 'Ernst Handel',
-      contact: 'Roland Mendel',
-      country: 'Austria'
+      id: 3,
+      name: 'Dam Thoai Tin ',
+      age: 26,
+      address: 'Da Nang'
     },
     {
-      company: 'Island Trading',
-      contact: 'Helen Bennett',
-      country: 'UK'
+      id: 4,
+      name: 'Banh Thi Queen',
+      age: 29,
+      address: 'Quang Ngai'
     },
     {
-      company: 'Laughing Bacchus Winecellars',
-      contact: 'Yoshi Tannamuri',
-      country: 'Canada'
+      id: 5,
+      name: 'Ngo Huu Hoang Nhat',
+      age: 27,
+      address: 'Quang Tri'
     },
     {
-      company: 'Magazzini Alimentari Riuniti',
-      contact: 'Giovanni Rovelli',
-      country: 'Italy'
+      id: 6,
+      name: 'Tran Viet Duy',
+      age: 36,
+      address: 'Hoi An'
     }
   ]
   
@@ -39,9 +45,10 @@ function App() {
   <table className=''>
     {students.map(student => (
           <tr>
-            <td>{student.company}</td>
-            <td>{student.contact}</td>
-            <td>{student.country}</td>
+            <td>{student.id}</td>
+            <td>{student.name}</td>
+            <td>{student.age}</td>
+            <td>{student.address}</td>
           </tr>
         ))}
   </table>
