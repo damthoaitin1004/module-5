@@ -8,18 +8,18 @@ class TodoList extends Component {
       }
    }
    handleInputName(nameTodo) {
-         this.setState({
-            todoName: nameTodo
-         })
-  
-      
+      this.setState({
+         todoName: nameTodo
+      })
+
+
    }
    addTodo() {
-      if(this.state.todoName.trim() !== ""){
-               this.setState({
-         todoList: [...this.state.todoList, this.state.todoName],
-         todoName: ""
-      })
+      if (this.state.todoName.trim() !== "") {
+         this.setState((stage) => ({
+            todoList: [...stage.todoList, stage.todoName],
+            todoName: ""
+         }))
       }
 
    }
@@ -37,7 +37,7 @@ class TodoList extends Component {
                   </div>
                   <div className="d-flex justify-content-center p-3">
                      <input type="text" value={this.state.todoName} onChange={(event) => this.handleInputName(event.target.value)} />
-   
+
                      <button className="btn btn-outline-primary" onClick={() => this.addTodo()}>Add</button>
                   </div>
                </div>
@@ -53,9 +53,9 @@ class TodoList extends Component {
                         </tr>
                         {this.state.todoList.map((element) => {
                            return (
-                            <tr>
-                                <td>{element}</td>
-                            </tr>  
+                              <tr>
+                                 <td>{element}</td>
+                              </tr>
                            )
 
                         })}
