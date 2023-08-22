@@ -51,13 +51,12 @@ class TodoList extends Component {
 
                            <th>Name</th>
                         </tr>
-                        {this.state.todoList.map((element) => {
+                        {this.state.todoList.map((element,index) => {
                            return (
                               <tr>
-                                 <td>{element}</td>
+                                 <td key={index}>{element}</td>
                               </tr>
                            )
-
                         })}
                      </tbody>
                   </table>
