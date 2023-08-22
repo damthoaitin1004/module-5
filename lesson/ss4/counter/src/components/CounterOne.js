@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import useIncrement from './useIncrement';
-function CounterOne() {
+const CounterOne =() => {
     const [count,increase] = useIncrement(1);
   
     return (

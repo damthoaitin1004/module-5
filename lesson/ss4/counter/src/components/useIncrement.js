@@ -1,7 +1,7 @@
 import { useState } from "react";
-function useIncrement(addAmount){
+const useIncrement = (addAmount)=>{
     const[count,setCount] = useState(0);
-    function increase(){
+    const increase=() =>{
        let newCount = count + addAmount;
        setCount(newCount);
     }
