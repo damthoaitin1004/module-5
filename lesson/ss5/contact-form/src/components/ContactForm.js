@@ -18,12 +18,11 @@ const ContactForm = () => {
                 phone: Yup.string().required("Phone is not empty, please !"),
                 message: Yup.string().required("message is not empty, please !")
             })}
-            onSubmit={(values, { setSubmitting }) => {
-               
-                    setSubmitting(false);
+            onSubmit={(values) => {
                     alert(`Create ${values.name}  success`)
                 
             }}>
+                
             {
                 <div className="mx-auto mt-5 shadow-lg rounded" style={{ width: "50%" }}>
                     <Form className="mx-auto p-3" style={{ width: "90%" }}>
