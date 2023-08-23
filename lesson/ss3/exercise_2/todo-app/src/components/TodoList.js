@@ -6,14 +6,15 @@ class TodoList extends Component {
          todoName: "",
          todoList: ['nhat beo', 'nam']
       }
+
    }
    handleInputName(nameTodo) {
       this.setState({
          todoName: nameTodo
       })
-
-
    }
+
+
    addTodo() {
       if (this.state.todoName.trim() !== "") {
          this.setState((stage) => ({
@@ -51,7 +52,7 @@ class TodoList extends Component {
 
                            <th>Name</th>
                         </tr>
-                        {this.state.todoList.map((element,index) => {
+                        {this.state.todoList.map((element, index) => {
                            return (
                               <tr>
                                  <td key={index}>{element}</td>
