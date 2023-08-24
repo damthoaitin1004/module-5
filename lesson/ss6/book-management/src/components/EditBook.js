@@ -1,4 +1,4 @@
-import { Field, Form, Formik,ErrorMessage } from "formik";
+import { Field, Form, Formik, ErrorMessage } from "formik";
 import { useEffect, useState } from "react";
 import { Await, BrowserRouter, Link, useNavigate, useParams } from "react-router-dom";
 import * as bookService from "../services/BookService";
@@ -8,46 +8,34 @@ import * as Yup from "yup"
 export const EditBook = () => {
     const navigate = useNavigate();
 
-    const { id } = useParams()
+    const { id } = useParams();
 
-    const [book, setBook] = useState({
-        title: "",
-        quantity: ""
-    })
-    useEffect(() => {
-        loadBook();
-    }, []);
-
-    const loadBook = async () => {
-        const result = await bookService.getById(id);
-        console.log(result);
-        setBook(result.data);
+    const [book, setBook] = useState();
+    const getById = async () => {
+        const currentBook = await bookService.getById(id);
+        setBook(prev => ({...prev,...currentBook}));
+        console.log(currentBook);
     }
-//      useEffect(() => {
-//     loadBook();
-//   }, []);
-
-//   const loadBook = async () => {
-//     try {
-//       const result = await bookService.getById(id);
-//       setBook(result);
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-
+    useEffect(() => {
+        if(book === undefined) {
+            getById();
+        }
     
+    }, [book])
+
+
     const update = async (values) => {
         const result = await bookService.editBook(id, values);
         console.log(result)
         navigate("/");
     }
     return (
-        <>
+        <> {book !== undefined ?
             <Formik
                 initialValues={
                     {
-                        book
+                        title: book.title,
+                        quantity: book.quantity
                     }
                 }
 
@@ -96,7 +84,7 @@ export const EditBook = () => {
                         Update
                     </button>
                 </Form>
-            </Formik>
+            </Formik>: ""}
         </>
     );
 }
