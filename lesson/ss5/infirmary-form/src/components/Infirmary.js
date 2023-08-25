@@ -30,9 +30,8 @@ const Infirmary = () => {
                     district: Yup.string().required("Vui lòng không bỏ trống quận/huyện"),
                     wards: Yup.string().required("Vui lòng không bỏ trống phường xã"),
                     address: Yup.string().required("Vui lòng không bỏ trống địa chỉ"),
-                    phone: Yup.string().required("Vui lòng không bỏ trống số điện thoại"),
-                    email: Yup.string().required("VUi lòng không bỏ trống email").matches(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/
-                    , "Vui lòng nhập đúng định dạng email")
+                    phone: Yup.string().required("Vui lòng không bỏ trống số điện thoại").matches(/^(0|84)(2(0[3-9]|1[0-6|8|9]|2[0-2|5-9]|3[2-9]|4[0-9]|5[1|2|4-9]|6[0-3|9]|7[0-7]|8[0-9]|9[0-4|6|7|9])|3[2-9]|5[5|6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])([0-9]{7})$/, "Vui lòng nhập đúng định dạng số điện thoại "),
+                    email: Yup.string().required("VUi lòng không bỏ trống email").matches(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/, "Vui lòng nhập đúng định dạng email")
                 })}
                 onSubmit={(values) => {
                     alert(` ${values.name} đã được khai báo thành công !`);
@@ -47,7 +46,7 @@ const Infirmary = () => {
                             <div className="row">
                                 <div className="col-6">
                                     <div className="mb-2">
-                                        <label htmlFor="exampleFormControlInput1" className="form-label">
+                                        <label htmlFor="name" className="form-label">
                                             Họ và tên
                                         </label>
                                         <Field
@@ -61,13 +60,13 @@ const Infirmary = () => {
 
                                     </div>
                                     <div className="mb-2">
-                                        <label htmlFor="exampleFormControlInput1" className="form-label">
+                                        <label htmlFor="indentity" className="form-label">
                                             Số hộ chiếu /CMND
                                         </label>
                                         <Field
                                             type="text"
                                             className="form-control"
-                                            id="exampleFormControlInput"
+                                            id="indentity"
                                             placeholder=""
                                             name='indentity'
                                         />
@@ -75,10 +74,10 @@ const Infirmary = () => {
 
                                     </div>
                                     <div className="mb-2">
-                                        <label htmlFor="dob" className="form-label">
+                                        <label htmlFor="birthDay" className="form-label">
                                             Năm sinh
                                         </label>
-                                        <Field type="date" className="form-control" id="dob" placeholder="" name='birthDay' />
+                                        <Field type="date" className="form-control" id="birthDay" placeholder="" name='birthDay' />
                                         <ErrorMessage name="birthDay" component='span' className="form-error" />
                                     </div>
                                     <div className="mb-1 ">
@@ -88,7 +87,7 @@ const Infirmary = () => {
                                                 className="form-check-input"
                                                 type="radio"
                                                 name="gender"
-                                                id="exampleRadios1"
+                                                id="gender"
                                                 value="Nam"
                                             />
                                             <label className="form-check-label" htmlFor="gender">
@@ -100,7 +99,7 @@ const Infirmary = () => {
                                                 className="form-check-input"
                                                 type="radio"
                                                 name="gender"
-                                                id="exampleRadios2"
+                                                id="gender"
                                                 value="Nữ"
                                             />
                                             <label className="form-check-label" htmlFor="gender">
@@ -110,14 +109,14 @@ const Infirmary = () => {
                                     </div>
                                     <div className="mb-2">
                                         <label
-                                            htmlFor="exampleFormControlTextarea1111"
+                                            htmlFor="country"
                                             className="form-label"
                                         >
                                             Quốc tịch
                                         </label>
                                         <Field
                                             className="form-control"
-                                            id="exampleFormControlTextarea1111"
+                                            id="country"
                                             rows={3}
                                             name="country"
                                         />
@@ -126,25 +125,25 @@ const Infirmary = () => {
                                     </div>
                                     <div className="mb-2">
                                         <label
-                                            htmlFor="exampleFormControlTextarea11111"
+                                            htmlFor="company"
                                             className="form-label"
                                         >
                                             Công ty làm việc
                                         </label>
                                         <input
                                             className="form-control"
-                                            id="exampleFormControlTextarea11111"
+                                            id="company"
                                             rows={3}
                                             name="company"
                                         />
                                     </div>
                                     <div className="mb-2">
-                                        <label htmlFor="exampleFormControlTextarea1" className="form-label">
+                                        <label htmlFor="department" className="form-label">
                                             Bộ phận làm việc{" "}
                                         </label>
                                         <input
                                             className="form-control"
-                                            id="exampleFormControlTextarea1"
+                                            id="department"
                                             rows={3}
                                         />
                                     </div>
@@ -152,9 +151,9 @@ const Infirmary = () => {
                                         <input
                                             type="checkbox"
                                             className="form-check-input"
-                                            id="exampleCheck1"
+                                            id="medicalCard"
                                         />
-                                        <label className="form-check-label" htmlFor="exampleCheck1">
+                                        <label className="form-check-label" htmlFor="medicalCard">
                                             Có thẻ bảo hiểm y tế
                                         </label>
                                     </div>
@@ -216,13 +215,13 @@ const Infirmary = () => {
                                         </h4>
                                     </div>
                                     <div className="mb-2">
-                                        <label htmlFor="exampleFormControlInput1" className="form-label">
+                                        <label htmlFor="city" className="form-label">
                                             Tỉnh thành
                                         </label>
                                         <Field
                                             type="text"
                                             className="form-control"
-                                            id="exampleFormControlInput12"
+                                            id="city"
                                             placeholder=""
                                             name='city'
                                         />
@@ -230,13 +229,13 @@ const Infirmary = () => {
 
                                     </div>
                                     <div className="mb-2">
-                                        <label htmlFor="exampleFormControlInput1" className="form-label">
+                                        <label htmlFor="district" className="form-label">
                                             Quận/ huyện
                                         </label>
                                         <Field
                                             type="text"
                                             className="form-control"
-                                            id="exampleFormControlInput12"
+                                            id="district"
                                             placeholder=""
                                             name='district'
                                         />
@@ -244,13 +243,13 @@ const Infirmary = () => {
 
                                     </div>
                                     <div className="mb-2">
-                                        <label htmlFor="exampleFormControlInput1" className="form-label">
+                                        <label htmlFor="wards" className="form-label">
                                             Phường/xã
                                         </label>
                                         <Field
                                             type="text"
                                             className="form-control"
-                                            id="exampleFormControlInpqqq"
+                                            id="wards"
                                             placeholder=""
                                             name='wards'
                                         />
@@ -258,28 +257,28 @@ const Infirmary = () => {
 
                                     </div>
                                     <div className="mb-2">
-                                        <label htmlFor="exampleFormControlTextarea1" className="form-label">
+                                        <label htmlFor="address" className="form-label">
                                             Số nhà tổ dân phố/thôn/đội
                                         </label>
-                                        <Field className="form-control" id="exampleFormControlTextarea1aaa" name='address'/>
+                                        <Field className="form-control" id="address" name='address' />
                                         <ErrorMessage name="address" component='span' className="form-error" />
                                     </div>
                                     <div className="mb-2">
-                                        <label htmlFor="exampleFormControlTextarea1" className="form-label">
+                                        <label htmlFor="phone" className="form-label">
                                             Điện thoại
                                         </label>
                                         <Field
                                             className="form-control"
-                                            id="exampleFormControlTextarea1aaab"
+                                            id="phone"
                                             name='phone'
                                         />
-                                         <ErrorMessage name="phone" component='span' className="form-error" />
+                                        <ErrorMessage name="phone" component='span' className="form-error" />
                                     </div>
                                     <div className="mb-5">
-                                        <label htmlFor="exampleFormControlTextarea1" className="form-label">
+                                        <label htmlFor="email" className="form-label">
                                             Email
                                         </label>
-                                        <Field className="form-control" id="exampleFormControlTextarea1ava" name='email'/>
+                                        <Field className="form-control" id="email" name='email' />
                                         <ErrorMessage name="email" component='span' className="form-error" />
                                     </div>
                                     <div className="mb-2">
@@ -293,8 +292,8 @@ const Infirmary = () => {
                                             </label>
                                         </div>
                                         <div>
-                                            <input type="checkbox" className="form-check-input" id="c" />
-                                            <label className="form-check-label" htmlFor="c">
+                                            <input type="checkbox" className="form-check-input" id="nb" />
+                                            <label className="form-check-label" htmlFor="nb">
                                                 Người từ nước có bệnh COVID-19
                                             </label>
                                         </div>
@@ -320,5 +319,5 @@ const Infirmary = () => {
             </Formik>
         </>
     );
-} 
+}
 export default Infirmary;

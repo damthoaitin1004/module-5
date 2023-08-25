@@ -11,18 +11,16 @@ const ContactForm = () => {
 
             }}
             validationSchema={Yup.object({
-                name: Yup.string()
-                    .required("Name is not empty, please !")
-                    .matches(/^[a-z A-Z ]+$/, "Name invalid"),
+                name: Yup.string().required("Name is not empty, please !").matches(/^[a-z A-Z ]+$/, "Name invalid"),
                 email: Yup.string().required("Email is not empty, please !").matches(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, "Email invalid"),
                 phone: Yup.string().required("Phone is not empty, please !"),
                 message: Yup.string().required("message is not empty, please !")
             })}
             onSubmit={(values) => {
-                    alert(`Create ${values.name}  success`)
-                
+                alert(`Create ${values.name}  success`);
+
             }}>
-                
+
             {
                 <div className="mx-auto mt-5 shadow-lg rounded" style={{ width: "50%" }}>
                     <Form className="mx-auto p-3" style={{ width: "90%" }}>
@@ -30,13 +28,13 @@ const ContactForm = () => {
                             <h1>Contact form</h1>
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="exampleFormControlInput1" className="form-label">
+                            <label htmlFor="name" className="form-label">
                                 Name
                             </label>
                             <Field
                                 type="text"
                                 className="form-control"
-                                id="exampleFormControlInput1"
+                                id="name"
                                 placeholder=""
                                 name="name"
                             />
@@ -44,13 +42,13 @@ const ContactForm = () => {
 
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="exampleFormControlInput1" className="form-label">
+                            <label htmlFor="email" className="form-label">
                                 Email
                             </label>
                             <Field
                                 type="text"
                                 className="form-control"
-                                id="exampleFormControlInput"
+                                id="email"
                                 placeholder=""
                                 name="email"
                             />
@@ -58,13 +56,13 @@ const ContactForm = () => {
 
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="exampleFormControlInput1" className="form-label">
+                            <label htmlFor="phone" className="form-label">
                                 Phone
                             </label>
                             <Field
                                 type="text"
                                 className="form-control"
-                                id="exampleFormControlInp"
+                                id="phone"
                                 placeholder=""
                                 name="phone"
                             />
@@ -72,15 +70,15 @@ const ContactForm = () => {
 
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="exampleFormControlTextarea1" className="form-label">
+                            <label htmlFor="message" className="form-label">
                                 Message
                             </label>
                             <Field as='textarea'
                                 className="form-control"
-                                id="exampleFormControlTextarea1"
+                                id="meassage"
                                 rows={3}
                                 defaultValue={""}
-                                name= "message"
+                                name="message"
                             />
                             <ErrorMessage name="message" component='span' className="form-error" />
 
