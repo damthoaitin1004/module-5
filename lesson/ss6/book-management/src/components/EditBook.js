@@ -20,12 +20,12 @@ export const EditBook = () => {
         if(book === undefined) {
             getById();
         }
-    
-    }, [book])
+        }, [book])
 
 
     const update = async (values) => {
         const result = await bookService.editBook(id, values);
+        alert("Update successs !")
         console.log(result)
         navigate("/");
     }
@@ -34,8 +34,9 @@ export const EditBook = () => {
             <Formik
                 initialValues={
                     {
-                        title: book.title,
-                        quantity: book.quantity
+                        // title: book.title,
+                        // quantity: book.quantity
+                        ...book
                     }
                 }
 
