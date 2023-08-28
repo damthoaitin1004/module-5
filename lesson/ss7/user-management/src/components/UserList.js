@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { GET_ALL_USER_LIST,DELETE_USER } from '../Types';
+import { GET_ALL_USER_LIST, DELETE_USER } from '../Types';
 
 const UserList = () => {
     const users = useSelector(state => state.userList)
@@ -14,14 +14,15 @@ const UserList = () => {
     const deleteUser = (id) => {
         dispatch({
             type: DELETE_USER,
-            payload: id
+            payload: id,
+            
         })
     }
 
     return (
         <div>
             <h1>User list</h1>
-            <button onClick={() => getUserList()}  type="button">Get users</button>
+            <button onClick={() => getUserList()} type="button">Get users</button>
             <table>
                 <tr>
                     <th>Id</th>
