@@ -55,7 +55,7 @@
         "street": "Douglas Extension",
         "suite": "Suite 847",
         "city": "McKenziehaven",
-        "zipcode": "59590-4157",
+        "zipcode": "59590-564",
         "geo": {
           "lat": "-68.6102",
           "lng": "-47.0653"
@@ -78,7 +78,7 @@
         "street": "Douglas Extension",
         "suite": "Suite 847",
         "city": "McKenziehaven",
-        "zipcode": "59590-4157",
+        "zipcode": "12345-4157",
         "geo": {
           "lat": "-68.6102",
           "lng": "-47.0653"
