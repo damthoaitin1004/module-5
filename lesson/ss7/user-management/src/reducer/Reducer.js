@@ -5,9 +5,7 @@ const initState = [];
 const userReducer = (state = initState, action) => {
     const { type, payload } = action;
     switch (type) {
-        // case DELETE_USER:
-        //     return state
-        case GET_ALL_USER_LIST_SUCCESS:
+            case GET_ALL_USER_LIST_SUCCESS:
             return payload;
         default:
             return state;

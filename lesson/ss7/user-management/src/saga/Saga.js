@@ -13,7 +13,7 @@ function* getUserList() {
 }
 
 function* deleteUser(payload){
-    const result = yield removeUser(payload.payload);
+     yield removeUser(payload.payload);
       yield put({
         type: GET_ALL_USER_LIST,
     })
